@@ -1,15 +1,20 @@
 from __future__ import division, print_function
 import numpy as np
 import pandas as pd
-import math
-
-# Read in ADS data and sort by reader_count
-df = pd.read_csv("../files/ads_harvard_data.csv")
-df.reader_ids = df.reader_ids.astype(str)
-df.sort("readers", ascending=False, inplace=True)
+import os
+from datetime import datetime
 
 # Settings
-number_of_papers = 100
+number_of_papers = 400
+cat = "cs_dl"
+timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+output_folder = "../files/{}/".format(timestamp)
+os.makedirs(output_folder)
+
+# Read in ADS data and sort by reader_count
+df = pd.read_csv("../files/{}_ads_data.csv".format(cat))
+df.reader_ids = df.reader_ids.astype(str)
+df.sort("readers", ascending=False, inplace=True)
 
 # List of reader id's
 readers = []
@@ -24,7 +29,7 @@ for idx, row in df.iterrows():
 print("*** Writing metadata.csv")
 metadata = df[0:number_of_papers]
 metadata['id'] = range(1, number_of_papers + 1)
-metadata.to_csv("../files/metadata.csv", index=False)
+metadata.to_csv(output_folder + "metadata.csv", index=False)
 
 # Co-occurence matrix
 # cooc = np.zeros((len(readers)+1, len(readers)+1), dtype=int)
@@ -55,6 +60,6 @@ for idx1, list1 in enumerate(readers, start=1):
 #     cooc[i, 0] = i
 
 output = np.array(output)
-np.savetxt("../files/cooc.csv", output, delimiter=",")
+np.savetxt(output_folder + "cooc.csv", output, delimiter=",")
 
 print("Sparsity: {}".format(len(output)/2/len(readers)**2))

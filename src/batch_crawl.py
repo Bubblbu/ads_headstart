@@ -27,6 +27,7 @@ __author__ = 'Asura Enkhbayar <aenkhbayar@know-center.at>'
 
 # Configuration
 num_threads = 10
+cat = "cs_dl"
 
 api_key = "yd6DF417X6BBlNYgNuamC7SsD4kMFpFPfKHSkhDh"
 headers = {'Authorization': "Bearer:" + api_key}
@@ -43,7 +44,7 @@ class ADSThread(threading.Thread):
         while not self.input_q.empty():
             arxiv_id = self.input_q.get_nowait()
             payload = {'q': 'arxiv:{}'.format(arxiv_id), 'sort': 'read_count desc',
-                       'fl': 'reader,title,abstract,year,author,pub,read_count'}
+                       'fl': 'reader,title,abstract,year,author,pub,read_count,citation_count,identifier'}
             r = requests.get(adsws_url, params=payload, headers=headers)
             temp = r.json()['response']['docs'][0]
             temp['url'] = "http://arxiv.org/abs/" + arxiv_id
@@ -65,7 +66,7 @@ class ADSThread(threading.Thread):
             self.output_q.put(temp)
 
 # Load files file - arxiv id's
-ids = pd.read_json("../files/cs_gr.json")
+ids = pd.read_json("../files/{}.json".format(cat))
 
 input_queue = Queue.Queue()
 output_queue = Queue.Queue()
@@ -102,4 +103,4 @@ df.rename(columns={'pub': 'published_in', 'abstract': 'paper_abstract'}, inplace
 df.index.name = "id"
 
 # Output
-df.to_csv("../files/ads_harvard_data.csv", encoding='utf8')
+df.to_csv("../files/{}_ads_data.csv".format(cat), encoding='utf8')
