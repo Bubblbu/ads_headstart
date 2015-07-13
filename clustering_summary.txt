@@ -1,0 +1,23 @@
+# ADS Harvard Data
+
+## Findings
+
++ Some disciplines seem to be more read than others… Especially *Astrophysics* and *Computer Vision* --> NASA ADS is probably used by mostly astrophysicists. (Computer Vision maybe because of image processing tasks)
++ From now we are concentrating on **Astrophysics**. The goal is to create visuaizations that can be presented to the Harvards/ADS people… Visulization of the six subdisciplines
+
+## Clustering
+
++ Concetrate on senseful clustering. In general reader (click) numbers seam to be useful information as the clustering of the subdisciplines works pretty well
++ 6 Disciplines -> 6 Clusters: k-means clustering?
++ Hierarchical Clustering + Elbow leads to many small clusters (~15)
++ Hierarchical Clustering + p-value threashold works great with Top 100, but struggles with 200+
+
+## Tasks
+
++ Test different clustering algorithms with different document numbers (Top 100/200/300)
+	+ k-means with 4,5,6 clusters
+	+ hclust with elbow
+	+ hclust with p-value of 0.95
++ Evaluate different linking methods (average, ward.D, ward.D2, ...)
++ Calculate Purity
++ Evaluate number of clusters and the respective sizes

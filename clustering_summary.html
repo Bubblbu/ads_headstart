@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)file:///C:/Users/aenkbahyar/AppData/Local/Temp/tmpFA6.tmp.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>clustering_summary.txt</title>
+<meta name="description" content="This file was exported from WriteMonkey editor.">
+<style type="text/css">
+@import url(http://fonts.googleapis.com/css?family=Vollkorn:400,400italic,700,700italic&subset=latin);
+
+html, body {
+        padding:1em;
+        margin:auto;
+        max-width:42em;
+        background:#fefefe;
+	}
+body {
+	font: 1.3em "Vollkorn", Palatino, Times;
+	color: #333;
+	line-height: 1.4;
+	text-align: justify;
+	}
+header, nav, article, footer {
+	width: 700px;
+	margin:0 auto;
+	}
+article {
+	margin-top: 4em;
+	margin-bottom: 4em;
+	min-height: 400px;
+	}
+footer {
+	margin-bottom:50px;
+	}
+video {
+	margin: 2em 0;
+	border:1px solid #ddd;
+	}
+
+nav {
+	font-size: .9em;
+	font-style: italic;
+	border-bottom: 1px solid #ddd;
+	padding: 1em 0;
+	}
+nav p {
+	margin: 0;
+	}
+
+/* Typography
+-------------------------------------------------------- */
+
+h1 {
+	margin-top: 0;
+	font-weight: normal;
+	}
+h2 {
+	font-weight: normal;
+	}
+h3 {
+	font-weight: normal;
+	font-style: italic;
+	margin-top:3em;
+	}
+p {
+	margin-top:0;
+	-webkit-hypens:auto;
+	-moz-hypens:auto;
+	hyphens:auto;
+	}
+ul {
+	list-style: square;
+	padding-left:1.2em;
+	}
+ol {
+	padding-left:1.2em;
+	}
+blockquote {
+	margin-left: 1em;
+	padding-left: 1em;
+	border-left: 1px solid #ddd;
+	}
+code {
+	font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
+	font-size: .9em;
+	background: white;
+	}
+a {
+	color: #2484c1;
+	text-decoration: none;
+	}
+a:hover {
+	text-decoration: underline;
+	}
+a img {
+	border:none;
+	}
+h1 a, h1 a:hover {
+	color: #333;
+	text-decoration: none;
+	}
+hr {
+	color : #ddd;
+	height : 1px;
+	margin: 2em 0;
+	border-top : solid 1px #ddd;
+	border-bottom : none;
+	border-left: 0;
+	border-right: 0;
+	}
+p#heart{
+	font-size: 2em;
+	line-height: 1;
+	text-align: center;
+	color: #ccc;
+	}
+.red {
+	color:#B50000;
+	}
+
+/* Home Page
+--------------------------- */
+
+body#index li {
+	margin-bottom: 1em;
+	}
+
+
+/* iPad
+-------------------------------------------------------- */
+@media only screen and (max-device-width: 1024px) {
+body {
+	font-size: 120%;
+	line-height: 1.4;
+	}
+} /* @iPad */
+
+/* iPhone
+-------------------------------------------------------- */
+@media only screen and (max-device-width: 480px) {
+body {
+	text-align: left;
+	}
+article, footer {
+	width: auto;
+	}
+article {
+	padding: 0 10px;
+	}
+} /* @iPhone */
+</style>
+
+</head>
+<body>
+<h1>ADS Harvard Data</h1>
+<h2>Findings</h2>
+<ul>
+<li>Some disciplines seem to be more read than others… Especially <em>Astrophysics</em> and <em>Computer Vision</em> --&gt; NASA ADS is probably used by mostly astrophysicists. (Computer Vision maybe because of image processing tasks)</li>
+<li>From now we are concentrating on <strong>Astrophysics</strong>. The goal is to create visuaizations that can be presented to the Harvards/ADS people… Visulization of the six subdisciplines</li>
+</ul>
+<h2>Clustering</h2>
+<ul>
+<li>Concetrate on senseful clustering. In general reader (click) numbers seam to be useful information as the clustering of the subdisciplines works pretty well</li>
+<li>6 Disciplines -&gt; 6 Clusters: k-means clustering?</li>
+<li>Hierarchical Clustering + Elbow leads to many small clusters (~15)</li>
+<li>Hierarchical Clustering + p-value threashold works great with Top 100, but struggles with 200+</li>
+</ul>
+<h2>Tasks</h2>
+<ul>
+<li>
+Test different clustering algorithms with different document numbers (Top 100/200/300)
+<ul>
+<li>k-means with 4,5,6 clusters</li>
+<li>hclust with elbow</li>
+<li>hclust with p-value of 0.95</li>
+</ul>
+</li>
+<li>Evaluate different linking methods (average, ward.D, ward.D2, ...)</li>
+<li>Calculate Purity</li>
+<li>Evaluate number of clusters and the respective sizes</li>
+</ul>
+
+
+
+</body></html>
