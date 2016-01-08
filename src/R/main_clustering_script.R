@@ -1,7 +1,9 @@
-wd = "E:/Work/Know-Center/Headstart/server/preprocessing/output/astro-ph_top_300"
+wd = "E:/Work/Know-Center/NASA_ADS/output_clustering/clustering_output/bollenstyle"
+
+wd = "E:/Work/Know-Center/test_parsing/ipython_notebooks"
 
 placement_mode = "tsne"
-diag_mode <<- "max"
+diag_mode = "max"
 
 #######################
 init(wd)
@@ -31,9 +33,12 @@ i = 1
 for (folder in wds) {
   for (placement_mode in placements) {
     num_clusters = man_clusters[i]
-    wd = paste("E:/Work/Know-Center/Headstart/server/preprocessing/output/", folder, sep="")
-    cat(paste(wd, num_clusters, placement_mode, "\n"))
+    wd = paste("E:/Work/Know-Center/NASA_ADS/output/clustering_output", folder, sep="")
+    cat(paste(wd, num_clusters, placement_mode, "/n"))
     run_main(wd, placement_mode, diag_mode, sim_mode)
   }
   i = i+1
 }
+
+########################
+pvclust::pvclust(cooc_matrix_sym, method.hclust="ward.D", method.distance="cosine", nboot=100)

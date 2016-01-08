@@ -2,3 +2,10 @@ ipython/
 .Rproj.user
 results/
 output/
+output_clustering/
+output_ads/
+.idea/workspace.xml
+texts/
+src/.RData
+src/.Rhistory
+*.found

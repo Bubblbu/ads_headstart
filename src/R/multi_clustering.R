@@ -1,4 +1,4 @@
-wd_base = "E:/Work/Know-Center/Headstart/server/preprocessing/output/astro-ph_top_100"
+wd = "E:/Work/Know-Center/NASA_ADS/output/clustering_output"
 wd_ext = c("100","200","300")
 
 placement_mode = "tsne"
